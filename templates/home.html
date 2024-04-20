@@ -8,8 +8,22 @@
     <title>Odyssey</title>
 </head>
 
-<body background>
-    <a href="/create">create a group</a>
+<body class="animatedBg">
+    <header>
+        <header>
+            <div class="topcontainer">
+                <div class="logo">
+                    <p>
+                        <img src="/static/images/logo.png" width=15%
+                            alt="logo">
+                    </p>
+                </div>
+                <nav>
+                    <a href="/create">+</a>
+                </nav>
+            </div>
+        </header>
+    </header>
     <div class="slidercontainer">
 
         <form method="GET" action= "/">
@@ -17,6 +31,7 @@
             <input type="range" min="2" max="8" step="1" name="groupsize-input" id="groupsize-input"
                 onchange="updateValue('groupsize')">
             <br>
+
         
             <select name="subjects">
                 <option value="" disabled selected>Select Subject</option>
@@ -24,14 +39,17 @@
                 <option value="LITERACY">LITERACY</option>
                 <option value="SCIENCE">SCIENCE</option>
                 <option value="HISTORY">HISTORY</option>
+
             </select>
         
             <select name="difficulty">
+
                 <option value="" disabled selected>Select Difficulty</option>
                 <option value="DUAL ENROLLMENT">Dual Enrollment</option>
                 <option value="ADVANCED PLACEMENT">Advanced Placement</option>
                 <option value="BASE LEVEL">Base Level</option>
                 <option value="HONORS">Honors</option>
+
             </select>
 
            
@@ -45,7 +63,7 @@
 
     </div>
 
-    
+
     <div>
 
     <h2>Created Groups:</h2>
@@ -65,6 +83,7 @@
 
             <div class="joinCont">
                 <a href="home.html">Join</a>
+
             </div>
         </div>
     {% endfor %}
