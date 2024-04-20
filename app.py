@@ -1,12 +1,12 @@
 
 from flask import Flask, render_template, request,redirect, url_for, jsonify,send_file
-from PIL import Image
+
 
 
 app = Flask(__name__)
 
 
-groups = []
+groups = {}
 
 @app.route("/")
 def home(): 
@@ -14,7 +14,10 @@ def home():
     groupSize = int(request.args.get('groupsize-input', 50000000))
     difficulty = (request.args.get('subject'))
     subject = (request.args.get('difficulty'))
-
+    print(groupSize)
+    print(difficulty)
+    print(subject)
+    print(groups)
     return render_template('home.html', groups=groups)
     
 
@@ -32,14 +35,12 @@ def create_group():
     if  groupName and description:  
             
     
-        groups.append({
-                "groupName": groupName,
-                "subject": subject,
-                "difficulty": difficulty2,
-                "groupSize": groupSize,
-                "description": description
-            })
-        print(groupName, subject, difficulty2, groupSize, description)
+        groups[groupName] = {
+            "subject": subject,
+            "difficulty": difficulty2,
+            "groupSize": groupSize,
+            "description": description
+        }
 
     if not groupName or not description:  
         error_message = "Please fill in all the fields."

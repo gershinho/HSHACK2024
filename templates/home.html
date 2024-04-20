@@ -23,13 +23,15 @@
                 <option value="mathematics">Mathematics</option>
                 <option value="literacy">Literacy</option>
                 <option value="science">Science</option>
+                <option value="history">History</option>
             </select>
 
             <select name="difficulty">
                 <option value="" disabled selected>Select Difficulty</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
+                <option value="Dual Enrollment">Dual Enrollment</option>
+                <option value="Advanced Placement">Advanced Placement</option>
+                <option value="Base">Base</option>
+                <option value="Honors">Honors</option>
             </select>
 
             <input type="submit" value="Submit Form">
@@ -39,16 +41,19 @@
 
     </div>
     <div>
-        <h2>Created Groups:</h2>
-        {% for group in groups %}
+        <h2>Filtered Groups:</h2>
+        {% for group_name, group_details in groups.items() %}
             <div>
-                <h3>{{ group.groupName }}</h3>
-                <p>Subject: {{ group.subject }}</p>
-                <p>Difficulty: {{ group.difficulty }}</p>
-                <p>Group Size: {{ group.groupSize }}</p>
-                <p>Description: {{ group.description }}</p>
+                <h3>{{ group_name }}</h3>
+                <p>Subject: {{ group_details.subject }}</p>
+                <p>Difficulty: {{ group_details.difficulty }}</p>
+                <p>Group Size: {{ group_details.groupSize }}</p>
+                <p>Description: {{ group_details.description }}</p>
             </div>
         {% endfor %}
+     
+            
+        
     </div>
     <script>
         function updateValue(type) {
