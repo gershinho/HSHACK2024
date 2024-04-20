@@ -7,5 +7,78 @@
     <link rel="stylesheet" href="../static/styles.css">
     <title>Odyssey</title>
 </head>
-hi
-</html>
+
+<body background>
+    <header>
+        <header>
+            <div class="topcontainer">
+                <div class="logo">
+                    <a href="/templates/home2.html">
+                        <img src="/static/images/Drawing-removebg-preview.png" width=15%
+                            alt="Odyssey: Space Travel Made Easy">
+                    </a>
+                </div>
+                <nav>
+                    <a href="/templates/home2.html">Home</a>
+                </nav>
+            </div>
+        </header>
+    </header>
+    <div class="slidercontainer">
+
+        <form>
+            <label for="groupsize-input">Group Size: <span id="groupsize-value"></span></label>
+            <input type="range" min="0" max="50000000" step="5000000" name="groupsize-input" id="groupsize-input"
+                onchange="updateValue('price')">
+            <!-- Add the submit button here -->
+
+
+
+            <label for="dist-input">Distance: <span id="dist-value"></span> ly </label>
+            <input type="range" min="0" max="500" step="50" name="dist-input" id="dist-input"
+                onchange="updateValue('dist')">
+            <input type="submit" value="Submit Form">
+        </form>
+
+       
+
+        <script>
+            function updateValue(type) {
+                var inputElement = document.getElementById(type + '-input');
+                var valueElement = document.getElementById(type + '-value');
+                valueElement.textContent = inputElement.value;
+            }
+
+
+        </script>
+
+
+        <form id="assignmentForm">
+            <table>
+                <tr>
+                    <td>
+                        <select name="subject">
+                            <option value="" disabled selected>Select Subject</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="literacy">Literacy</option>
+                            <option value="science">Science</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="difficulty">
+                            <option value="" disabled selected>Select Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </td>
+                    <td><input type="submit" value="Submit Form"></td>
+                </tr>
+            </table>
+        </form>
+
+
+       
+
+    </div>
+    <body background>

@@ -6,6 +6,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def home(): 
+    price = int(request.args.get('groupsize-input', 50000000))
+    distance = int(request.args.get('dist-input', 500))
+    difficulty = (request.args.get('subject'))
+    subject = (request.args.get('difficulty'))
+    print(difficulty)
+    print(subject)
     return render_template('home.html')
 
 
