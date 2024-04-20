@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Group!</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <a href="/">Home</a>
+    <h3> Create a Group:</h3>
+    <form action="/create">
+        <input type="text" name="groupName" step="0.01" placeholder="Group Name:">
+
+        <h3> Subject:</h3>
+        <select id="subject" name="subjects">
+            <option value="Math">Mathematics</option>
+            <option value="English">English</option>
+            <option value="Sciences">Sciences</option>
+            <option value="History">History</option>
+        </select>
+
+        <h3> Difficulty:</h3>
+
+        <select id="difficulty" name="levels">
+            <option value="base">Base Level</option>
+            <option value="honors">Honors</option>
+            <option value="dualEnrollment">Dual Enrollment</option>
+            <option value="AP">Advanced Placement</option>
+        </select>
+
+        <h3>Group Size:</h3>
+        <input type="range" id="slider" name="groupSize" min="2" max="8" value="4">
+        <p><span id="sliderValue">5</span></p>
+
+        <h3>Description:</h3>
+        <textarea id="description" name="paragraph" rows="4" cols="50"></textarea>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Get the slider element
+        var slider = document.getElementById("slider");
+        // Get the span element to display the value
+        var output = document.getElementById("sliderValue");
+        // Display the default slider value
+        output.innerHTML = slider.value;
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        };
+    </script>
+
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+
+</body>
+
+</html>

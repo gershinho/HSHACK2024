@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,62 +9,55 @@
 </head>
 
 <body background>
-    <a href="create.html">create a group</a>
+    <a href="/create">create a group</a>
     <div class="slidercontainer">
 
         <form>
             <label for="groupsize-input">Group Size: <span id="groupsize-value"></span></label>
             <input type="range" min="0" max="50000000" step="5000000" name="groupsize-input" id="groupsize-input"
                 onchange="updateValue('price')">
-            <!-- Add the submit button here -->
+            <br>
 
+            <select name="subject">
+                <option value="" disabled selected>Select Subject</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="literacy">Literacy</option>
+                <option value="science">Science</option>
+            </select>
 
+            <select name="difficulty">
+                <option value="" disabled selected>Select Difficulty</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
 
-            <label for="dist-input">Distance: <span id="dist-value"></span> ly </label>
-            <input type="range" min="0" max="500" step="50" name="dist-input" id="dist-input"
-                onchange="updateValue('dist')">
             <input type="submit" value="Submit Form">
         </form>
 
-       
-
-        <script>
-            function updateValue(type) {
-                var inputElement = document.getElementById(type + '-input');
-                var valueElement = document.getElementById(type + '-value');
-                valueElement.textContent = inputElement.value;
-            }
-
-
-        </script>
-
-
-        <form id="assignmentForm">
-            <table>
-                <tr>
-                    <td>
-                        <select name="subject">
-                            <option value="" disabled selected>Select Subject</option>
-                            <option value="mathematics">Mathematics</option>
-                            <option value="literacy">Literacy</option>
-                            <option value="science">Science</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select name="difficulty">
-                            <option value="" disabled selected>Select Difficulty</option>
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
-                    </td>
-                    <td><input type="submit" value="Submit Form"></td>
-                </tr>
-            </table>
-        </form>
-
-
-       
+    
 
     </div>
-    <body background>
+    <div>
+        <h2>Created Groups:</h2>
+        {% for group in groups %}
+            <div>
+                <h3>{{ group.groupName }}</h3>
+                <p>Subject: {{ group.subject }}</p>
+                <p>Difficulty: {{ group.difficulty }}</p>
+                <p>Group Size: {{ group.groupSize }}</p>
+                <p>Description: {{ group.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        function updateValue(type) {
+            var inputElement = document.getElementById(type + '-input');
+            var valueElement = document.getElementById(type + '-value');
+            valueElement.textContent = inputElement.value;
+        }
+    </script>
+</body>
+
+       
+</html>
