@@ -18,24 +18,26 @@
             
             <h3> Subject:</h3>
             <select name="subjects">
-                <option value="Math">Mathematics</option>
-                <option value="English">English</option>
-                <option value="Sciences">Science</option>
-                <option value="History">History</option>
+                <option value="" disabled selected>Select Subject</option>
+                <option value="MATHEMATICS">MATHEMATICS</option>
+                <option value="LITERACY">LITERACY</option>
+                <option value="SCIENCE">SCIENCE</option>
+                <option value="HISTORY">HISTORY</option>
             </select>
             
             <h3> Difficulty:</h3>
             
-            <select name="levels">
-                <option value="base">Base Level</option>
-                <option value="honors">Honors</option>
-                <option value="dualEnrollment">Dual Enrollment</option>
-                <option value="AP">Advanced Placement</option>
+            <select name="difficulty">
+                <option value="" disabled selected>Select Difficulty</option>
+                <option value="Dual Enrollment">Dual Enrollment</option>
+                <option value="Advanced Placement">Advanced Placement</option>
+                <option value="Base Level">Base Level</option>
+                <option value="Honors">Honors</option>
             </select>
             
             <h3>Group Size:</h3>
             <div class="sliderCont">
-                <input type="range" id="slider" name="groupSize" min="2" max="8" value="5" step="1">
+                <input type="range" id="slider" name="groupsize-input" min="2" max="8" value="5" step="1">
                 <p><span id="sliderValue">5</span></p>
             </div>
             

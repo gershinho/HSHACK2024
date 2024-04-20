@@ -8,38 +8,49 @@ app = Flask(__name__)
 
 groups = {}
 
-@app.route("/")
-def home(): 
+@app.route("/", methods=['GET'])
+def home():
+    # Retrieve values from the form submission or use defaults
+    group_size = request.args.get('groupsize-input', default="4")
+    subject = request.args.get('subjects', default="").upper()
+    difficulty = request.args.get('difficulty', default="").upper()
 
-    groupSize = int(request.args.get('groupsize-input', 50000000))
-    difficulty = (request.args.get('subject'))
-    subject = (request.args.get('difficulty'))
-    print(groupSize)
-    print(difficulty)
-    print(subject)
-    print(groups)
-    return render_template('home.html', groups=groups)
+    # Print to console for debugging
+   
+
+    matching_groups = {
+        name: details
+        for name, details in groups.items()
+        if details['Subject'].upper() == subject
+           and details['Difficulty'].upper() == difficulty
+           and str(details['GroupSize']) == group_size  # Ensure the group size is compared as a string
+    }
+
+
     
+    # Assuming 'groups' is a dictionary you've defined elsewhere that holds group details
+    return render_template('home.html', groups=matching_groups, subject=subject, difficulty=difficulty)
+
+
+
 
 @app.route("/create")
 def create_group():
     
     groupName = (request.args.get('groupName'))
     subject = (request.args.get('subjects'))
-    difficulty2 = (request.args.get('levels'))
-    groupSize = (request.args.get('groupSize'))
+    difficulty = (request.args.get('difficulty'))
+    groupSize = (request.args.get('groupsize-input'))
     description = (request.args.get('paragraph'))
-    print(groupName)
-    print(subject)
-    print(description)
+   
     if  groupName and description:  
             
     
         groups[groupName] = {
-            "subject": subject,
-            "difficulty": difficulty2,
-            "groupSize": groupSize,
-            "description": description
+            "Subject": subject,
+            "Difficulty": difficulty,
+            "GroupSize": groupSize,
+            "Description": description
         }
 
     if not groupName or not description:  
