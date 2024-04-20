@@ -26,66 +26,80 @@
     </header>
     <div class="slidercontainer">
 
-        <form>
+        <form method="GET" action= "/">
             <label for="groupsize-input">Group Size: <span id="groupsize-value"></span></label>
-            <input type="range" min="0" max="50000000" step="5000000" name="groupsize-input" id="groupsize-input"
-                onchange="updateValue('price')">
+            <input type="range" min="2" max="8" step="1" name="groupsize-input" id="groupsize-input"
+                onchange="updateValue('groupsize')">
             <br>
 
-            <select name="subject">
-                <option value="" disabled selected> Subject</option>
-                <option value="mathematics">Mathematics</option>
-                <option value="literacy">Literacy</option>
-                <option value="science">Science</option>
-                <option value="history">History</option>
-            </select>
+        
+            <select name="subjects">
+                <option value="" disabled selected>Select Subject</option>
+                <option value="MATHEMATICS">MATHEMATICS</option>
+                <option value="LITERACY">LITERACY</option>
+                <option value="SCIENCE">SCIENCE</option>
+                <option value="HISTORY">HISTORY</option>
 
+            </select>
+        
             <select name="difficulty">
-                <option value="" disabled selected>Difficulty</option>
-                <option value="Dual Enrollment">Dual Enrollment</option>
-                <option value="Advanced Placement">Advanced Placement</option>
-                <option value="Base">Base</option>
-                <option value="Honors">Honors</option>
+
+                <option value="" disabled selected>Select Difficulty</option>
+                <option value="DUAL ENROLLMENT">Dual Enrollment</option>
+                <option value="ADVANCED PLACEMENT">Advanced Placement</option>
+                <option value="BASE LEVEL">Base Level</option>
+                <option value="HONORS">Honors</option>
+
             </select>
 
+           
+        
             <input type="submit" value="Submit Form">
         </form>
+        
+        <div id="submitted-values"></div>
 
     
 
     </div>
 
-    
-    
-        <h2>Created Groups:</h2>
-        {% for group_name, group_details in groups.items() %}
-            <div class="studyCont">
-                <div class="headingCont">
-                    <div class="groupNameCont">
-                        <h3>{{ group_name }}</h3>
-                    </div>
-                    <div class="subjectCont">
-                        <h4>{{ group_details.subject }}</h4>
-                    </div>
+
+    <div>
+
+    <h2>Created Groups:</h2>
+    {% for group_name, group_details in groups.items() %}
+        <div class="studyCont">
+            <div class="headingCont">
+                <div class="groupNameCont">
+                    <h3>{{ group_name }}</h3>
                 </div>
-                <p>{{ group_details.description }}</p>
-                <div class="joinCont">
-                    <a href="home.html">Join</a>
+                <div class="subjectCont">
+                    <!-- Use capitalized keys as defined in your groups dictionary -->
+                    <h4>Subject: {{ group_details['Subject'] }}</h4>
                 </div>
-                <br>
             </div>
-        {% endfor %}
+            <p>Description: {{ group_details['Description'] }}</p>
+            <p>Difficulty: {{ group_details['Difficulty'] }}</p>
+
+            <div class="joinCont">
+                <a href="home.html">Join</a>
+
+            </div>
+        </div>
+    {% endfor %}
+
+
+         
+
+        
+        
      
             
         
     </div>
-    <script>
-        function updateValue(type) {
-            var inputElement = document.getElementById(type + '-input');
-            var valueElement = document.getElementById(type + '-value');
-            valueElement.textContent = inputElement.value;
-        }
-    </script>
+    
+    
+        
 </body>
 
        
