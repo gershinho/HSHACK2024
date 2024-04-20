@@ -14,9 +14,7 @@ def home():
     groupSize = int(request.args.get('groupsize-input', 50000000))
     difficulty = (request.args.get('subject'))
     subject = (request.args.get('difficulty'))
-    print(groupSize)
-    print(difficulty)
-    print(subject)
+
     return render_template('home.html', groups=groups)
     
 
@@ -28,7 +26,9 @@ def create_group():
     difficulty2 = (request.args.get('levels'))
     groupSize = (request.args.get('groupSize'))
     description = (request.args.get('paragraph'))
-
+    print(groupName)
+    print(subject)
+    print(description)
     if  groupName and description:  
             
     

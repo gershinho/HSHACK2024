@@ -12,12 +12,12 @@
 <body class="animatedBg">
     <div id="background"></div>
     <div class='newGroupCont'>
-        <form>
+        <form action= "/create" method="GET">
             <h3> Create a Group:</h3>
             <input type="text" name="groupName" step="0.01" placeholder="Group Name:">
             
             <h3> Subject:</h3>
-            <select id="subject" name="subjects">
+            <select name="subjects">
                 <option value="Math">Mathematics</option>
                 <option value="English">English</option>
                 <option value="Sciences">Sciences</option>
@@ -26,7 +26,7 @@
             
             <h3> Difficulty:</h3>
             
-            <select id="difficulty" name="levels">
+            <select name="levels">
                 <option value="base">Base Level</option>
                 <option value="honors">Honors</option>
                 <option value="dualEnrollment">Dual Enrollment</option>
@@ -39,13 +39,11 @@
             
             <h3>Description:</h3>
             <textarea id="description" name="paragraph" rows="4" cols="50"></textarea>
-        </form>
-        <div class='newGroupContSaveBtn'>
-            <form>
-                <input type="submit" value="Submit">
+            <div class='newGroupContSaveBtn'>
+                 <input type="submit" value="Submit">
                 <a href="/">Home</a>
-            </form>
-        </div>
+            </div>
+        </form>
         
     </div>
     <script>
@@ -62,11 +60,12 @@
         };
     </script>
 
-  
-    <script src="/static/main.js"></script>
-     {% if error_message %}
+    {% if error_message %}
     <p>{{ error_message }}</p>
     {% endif %}
+  
+    <script src="/static/main.js"></script>
+     
 </body>
 
 </html>
