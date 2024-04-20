@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 
+
 <body class="animatedBg">
     <div id="background"></div>
     <div class='newGroupCont'>
@@ -25,7 +26,7 @@
             
             <h3> Difficulty:</h3>
             
-            <select id="subject" name="subjects">
+            <select id="difficulty" name="levels">
                 <option value="base">Base Level</option>
                 <option value="honors">Honors</option>
                 <option value="dualEnrollment">Dual Enrollment</option>
@@ -34,7 +35,7 @@
             
             <h3>Group Size:</h3>
             <input type="range" id="slider" name="groupSize" min="2" max="8" value="5" step="1">
-            
+            <p><span id="sliderValue">5</span></p>
             
             <h3>Description:</h3>
             <textarea id="description" name="paragraph" rows="4" cols="50"></textarea>
@@ -42,12 +43,31 @@
         <div class='newGroupContSaveBtn'>
             <form>
                 <input type="submit" value="Submit">
-                <a href="home.html"> Back</a>
+                <a href="/">Home</a>
             </form>
         </div>
         
     </div>
+    <script>
+        // Get the slider element
+        var slider = document.getElementById("slider");
+        // Get the span element to display the value
+        var output = document.getElementById("sliderValue");
+        // Display the default slider value
+        output.innerHTML = slider.value;
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        };
+    </script>
+
+  
     <script src="/static/main.js"></script>
+     {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
 </body>
 
 </html>
+
