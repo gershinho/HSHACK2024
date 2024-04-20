@@ -8,8 +8,22 @@
     <title>Odyssey</title>
 </head>
 
-<body background>
-    <a href="/create">create a group</a>
+<body class="animatedBg">
+    <header>
+        <header>
+            <div class="topcontainer">
+                <div class="logo">
+                    <p>
+                        <img src="/static/images/logo.png" width=15%
+                            alt="logo">
+                    </p>
+                </div>
+                <nav>
+                    <a href="/create">+</a>
+                </nav>
+            </div>
+        </header>
+    </header>
     <div class="slidercontainer">
 
         <form>
@@ -19,7 +33,7 @@
             <br>
 
             <select name="subject">
-                <option value="" disabled selected>Select Subject</option>
+                <option value="" disabled selected> Subject</option>
                 <option value="mathematics">Mathematics</option>
                 <option value="literacy">Literacy</option>
                 <option value="science">Science</option>
@@ -27,7 +41,7 @@
             </select>
 
             <select name="difficulty">
-                <option value="" disabled selected>Select Difficulty</option>
+                <option value="" disabled selected>Difficulty</option>
                 <option value="Dual Enrollment">Dual Enrollment</option>
                 <option value="Advanced Placement">Advanced Placement</option>
                 <option value="Base">Base</option>
@@ -42,24 +56,23 @@
     </div>
 
     
-    <div>
-
+    
         <h2>Created Groups:</h2>
-        {% for group in groups %}
+        {% for group_name, group_details in groups.items() %}
             <div class="studyCont">
                 <div class="headingCont">
                     <div class="groupNameCont">
-                        <h3>{{ group.groupName }}</h3>
+                        <h3>{{ group_name }}</h3>
                     </div>
                     <div class="subjectCont">
-                        <h4>Subject: {{ group.subject }}</h4>
+                        <h4>{{ group_details.subject }}</h4>
                     </div>
                 </div>
-                <p>Description: {{ group.description }}</p>
+                <p>{{ group_details.description }}</p>
                 <div class="joinCont">
                     <a href="home.html">Join</a>
                 </div>
-
+                <br>
             </div>
         {% endfor %}
      

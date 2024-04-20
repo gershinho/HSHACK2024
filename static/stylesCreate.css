@@ -10,11 +10,11 @@ html {
     align-items: center;
 
 }
-.error{
-    font-size: 10px;
-}
 *:focus {
     outline: none;
+}
+.error{
+    font-size: 10px;
 }
     .animatedBg {
         animation: gradientAnimation 7s ease infinite;
@@ -131,4 +131,5 @@ html {
         background-color: rgba(0, 0, 0, 0.216); /* Darken the background color on focus */
         outline: none; /* Remove the default outline */
     }
+    
     
