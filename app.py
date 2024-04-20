@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template, request,redirect, url_for, jsonify,send_file
-from PIL import Image
+
 
 
 app = Flask(__name__)

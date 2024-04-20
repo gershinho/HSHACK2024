@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a Group!</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/stylesCreate.css">
 </head>
 
 
@@ -34,19 +34,24 @@
             </select>
             
             <h3>Group Size:</h3>
-            <input type="range" id="slider" name="groupSize" min="2" max="8" value="5" step="1">
-            <p><span id="sliderValue">5</span></p>
+            <div class="sliderCont">
+                <input type="range" id="slider" name="groupSize" min="2" max="8" value="5" step="1">
+                <p><span id="sliderValue">5</span></p>
+            </div>
             
             <h3>Description:</h3>
             <textarea id="description" name="paragraph" rows="4" cols="50"></textarea>
+            <div class='newGroupContSaveBtn'>
+                    <a href="/">Home</a>
+                    <input type="submit" value="Submit">
+                
+            </div>
         </form>
-        <div class='newGroupContSaveBtn'>
-            <form>
-                <input type="submit" value="Submit">
-                <a href="/">Home</a>
-            </form>
+        <div class =  'error'>
+            {% if error_message %}
+            <p>{{ error_message }}</p>
+            {% endif %}
         </div>
-        
     </div>
     <script>
         // Get the slider element
@@ -64,9 +69,6 @@
 
   
     <script src="/static/main.js"></script>
-     {% if error_message %}
-    <p>{{ error_message }}</p>
-    {% endif %}
 </body>
 
 </html>
