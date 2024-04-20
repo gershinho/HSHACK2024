@@ -1,5 +1,7 @@
+
 from flask import Flask, render_template, request,redirect, url_for, jsonify,send_file
 from PIL import Image
+
 
 app = Flask(__name__)
 
@@ -8,6 +10,7 @@ groups = []
 
 @app.route("/")
 def home(): 
+
     groupSize = int(request.args.get('groupsize-input', 50000000))
     difficulty = (request.args.get('subject'))
     subject = (request.args.get('difficulty'))
@@ -41,6 +44,7 @@ def create_group():
     if not groupName or not description:  
         error_message = "Please fill in all the fields."
         return render_template('create.html', error_message=error_message)
+
 
 
 

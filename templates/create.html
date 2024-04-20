@@ -8,40 +8,46 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 
-<body>
-    <a href="/">Home</a>
-    <h3> Create a Group:</h3>
-    <form action="/create">
-        <input type="text" name="groupName" step="0.01" placeholder="Group Name:">
 
-        <h3> Subject:</h3>
-        <select id="subject" name="subjects">
-            <option value="Math">Mathematics</option>
-            <option value="English">English</option>
-            <option value="Sciences">Sciences</option>
-            <option value="History">History</option>
-        </select>
-
-        <h3> Difficulty:</h3>
-
-        <select id="difficulty" name="levels">
-            <option value="base">Base Level</option>
-            <option value="honors">Honors</option>
-            <option value="dualEnrollment">Dual Enrollment</option>
-            <option value="AP">Advanced Placement</option>
-        </select>
-
-        <h3>Group Size:</h3>
-        <input type="range" id="slider" name="groupSize" min="2" max="8" value="4">
-        <p><span id="sliderValue">5</span></p>
-
-        <h3>Description:</h3>
-        <textarea id="description" name="paragraph" rows="4" cols="50"></textarea>
-
-        <!-- Submit Button -->
-        <input type="submit" value="Submit">
-    </form>
-
+<body class="animatedBg">
+    <div id="background"></div>
+    <div class='newGroupCont'>
+        <form>
+            <h3> Create a Group:</h3>
+            <input type="text" name="groupName" step="0.01" placeholder="Group Name:">
+            
+            <h3> Subject:</h3>
+            <select id="subject" name="subjects">
+                <option value="Math">Mathematics</option>
+                <option value="English">English</option>
+                <option value="Sciences">Sciences</option>
+                <option value="History">History</option>
+            </select>
+            
+            <h3> Difficulty:</h3>
+            
+            <select id="difficulty" name="levels">
+                <option value="base">Base Level</option>
+                <option value="honors">Honors</option>
+                <option value="dualEnrollment">Dual Enrollment</option>
+                <option value="AP">Advanced Placement</option>
+            </select>
+            
+            <h3>Group Size:</h3>
+            <input type="range" id="slider" name="groupSize" min="2" max="8" value="5" step="1">
+            <p><span id="sliderValue">5</span></p>
+            
+            <h3>Description:</h3>
+            <textarea id="description" name="paragraph" rows="4" cols="50"></textarea>
+        </form>
+        <div class='newGroupContSaveBtn'>
+            <form>
+                <input type="submit" value="Submit">
+                <a href="/">Home</a>
+            </form>
+        </div>
+        
+    </div>
     <script>
         // Get the slider element
         var slider = document.getElementById("slider");
@@ -56,10 +62,12 @@
         };
     </script>
 
-    {% if error_message %}
+  
+    <script src="/static/main.js"></script>
+     {% if error_message %}
     <p>{{ error_message }}</p>
     {% endif %}
-
 </body>
 
 </html>
+
