@@ -6,7 +6,7 @@ from flask import Flask, render_template, request,redirect, url_for, jsonify,sen
 app = Flask(__name__)
 
 
-groups = []
+groups = {}
 
 @app.route("/")
 def home(): 
@@ -17,6 +17,7 @@ def home():
     print(groupSize)
     print(difficulty)
     print(subject)
+    print(groups)
     return render_template('home.html', groups=groups)
     
 
@@ -28,18 +29,18 @@ def create_group():
     difficulty2 = (request.args.get('levels'))
     groupSize = (request.args.get('groupSize'))
     description = (request.args.get('paragraph'))
-
+    print(groupName)
+    print(subject)
+    print(description)
     if  groupName and description:  
             
     
-        groups.append({
-                "groupName": groupName,
-                "subject": subject,
-                "difficulty": difficulty2,
-                "groupSize": groupSize,
-                "description": description
-            })
-        print(groupName, subject, difficulty2, groupSize, description)
+        groups[groupName] = {
+            "subject": subject,
+            "difficulty": difficulty2,
+            "groupSize": groupSize,
+            "description": description
+        }
 
     if not groupName or not description:  
         error_message = "Please fill in all the fields."

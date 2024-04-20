@@ -23,13 +23,15 @@
                 <option value="mathematics">Mathematics</option>
                 <option value="literacy">Literacy</option>
                 <option value="science">Science</option>
+                <option value="history">History</option>
             </select>
 
             <select name="difficulty">
                 <option value="" disabled selected>Select Difficulty</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
+                <option value="Dual Enrollment">Dual Enrollment</option>
+                <option value="Advanced Placement">Advanced Placement</option>
+                <option value="Base">Base</option>
+                <option value="Honors">Honors</option>
             </select>
 
             <input type="submit" value="Submit Form">
@@ -41,6 +43,7 @@
 
     
     <div>
+
         <h2>Created Groups:</h2>
         {% for group in groups %}
             <div class="studyCont">
@@ -56,8 +59,12 @@
                 <div class="joinCont">
                     <a href="home.html">Join</a>
                 </div>
+
             </div>
         {% endfor %}
+     
+            
+        
     </div>
     <script>
         function updateValue(type) {

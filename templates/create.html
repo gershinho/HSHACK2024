@@ -12,21 +12,21 @@
 <body class="animatedBg">
     <div id="background"></div>
     <div class='newGroupCont'>
-        <form>
+        <form action= "/create" method="GET">
             <h3> Create a Group:</h3>
             <input type="text" name="groupName" step="0.01" placeholder="Group Name:">
             
             <h3> Subject:</h3>
-            <select id="subject" name="subjects">
+            <select name="subjects">
                 <option value="Math">Mathematics</option>
                 <option value="English">English</option>
-                <option value="Sciences">Sciences</option>
+                <option value="Sciences">Science</option>
                 <option value="History">History</option>
             </select>
             
             <h3> Difficulty:</h3>
             
-            <select id="difficulty" name="levels">
+            <select name="levels">
                 <option value="base">Base Level</option>
                 <option value="honors">Honors</option>
                 <option value="dualEnrollment">Dual Enrollment</option>
@@ -42,6 +42,7 @@
             <h3>Description:</h3>
             <textarea id="description" name="paragraph" rows="4" cols="50"></textarea>
             <div class='newGroupContSaveBtn'>
+
                     <a href="/">Home</a>
                     <input type="submit" value="Submit">
                 
@@ -52,6 +53,7 @@
             <p>{{ error_message }}</p>
             {% endif %}
         </div>
+
     </div>
     <script>
         // Get the slider element
@@ -69,6 +71,7 @@
 
   
     <script src="/static/main.js"></script>
+
 </body>
 
 </html>
