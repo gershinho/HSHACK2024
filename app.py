@@ -31,7 +31,9 @@ def home():
     # Assuming 'groups' is a dictionary you've defined elsewhere that holds group details
     return render_template('home.html', groups=matching_groups, subject=subject, difficulty=difficulty)
 
-
+@app.route("/join")
+def join():
+    return render_template('index.html')
 
 
 @app.route("/create")

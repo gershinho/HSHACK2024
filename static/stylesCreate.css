@@ -18,7 +18,7 @@ html {
 }
     .animatedBg {
         animation: gradientAnimation 7s ease infinite;
-        background: linear-gradient(-45deg, rgb(44, 2, 57), rgb(182, 75, 255));
+        background: linear-gradient(-45deg, rgb(0, 255, 17), rgb(182, 75, 255));
         background-size: 400% 400%;
         color: #fff;
     }
@@ -79,12 +79,13 @@ html {
         appearance: none; /* Remove default styles for non-WebKit browsers */
         width: 20px; /* Set the width of the slider thumb */
         height: 20px; /* Set the height of the slider thumb */
-        background: rgba(182,75,255,.7); /* Set the background color of the slider thumb */
+        background: rgba(120, 200, 253, 0.7); /* Set the background color of the slider thumb */
         border-radius: 50%; /* Create a circular shape for the slider thumb */
         cursor: pointer; /* Change cursor on hover */
     }
 
-    .sliderCont{
+    .slidercontainer{
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         display: flex;
         justify-content: flex-start; /* Align items to the right */
     }
@@ -111,7 +112,7 @@ html {
     .newGroupContSaveBtn input[type="submit"], 
     .newGroupContSaveBtn a {
         font-size: 1.2vh;
-        background-color: rgb(182, 75, 255);
+        background-color: rgb(5, 255, 1);
         color: #fff;
         padding: 10px 20px;
         border: none;
@@ -131,5 +132,4 @@ html {
         background-color: rgba(0, 0, 0, 0.216); /* Darken the background color on focus */
         outline: none; /* Remove the default outline */
     }
-    
     

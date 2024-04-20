@@ -13,10 +13,7 @@
         <header>
             <div class="topcontainer">
                 <div class="logo">
-                    <p>
-                        <img src="/static/images/logo.png" width=15%
-                            alt="logo">
-                    </p>
+                        <img src="/static/images/logo.png" width=15% alt="logo">
                 </div>
                 <nav>
                     <a href="/create">+</a>
@@ -26,13 +23,13 @@
     </header>
     <div class="slidercontainer">
 
-        <form method="GET" action= "/">
+        <form method="GET" action="/">
             <label for="groupsize-input">Group Size: <span id="groupsize-value"></span></label>
             <input type="range" min="2" max="8" step="1" name="groupsize-input" id="groupsize-input"
                 onchange="updateValue('groupsize')">
             <br>
 
-        
+
             <select name="subjects">
                 <option value="" disabled selected>Select Subject</option>
                 <option value="MATHEMATICS">MATHEMATICS</option>
@@ -41,7 +38,7 @@
                 <option value="HISTORY">HISTORY</option>
 
             </select>
-        
+
             <select name="difficulty">
 
                 <option value="" disabled selected>Select Difficulty</option>
@@ -52,22 +49,22 @@
 
             </select>
 
-           
-        
+
+
             <input type="submit" value="Submit Form">
         </form>
-        
+
         <div id="submitted-values"></div>
 
-    
+
 
     </div>
 
 
     <div>
 
-    <h2>Created Groups:</h2>
-    {% for group_name, group_details in groups.items() %}
+        <h2>Created Groups:</h2>
+        {% for group_name, group_details in groups.items() %}
         <div class="studyCont">
             <div class="headingCont">
                 <div class="groupNameCont">
@@ -75,32 +72,44 @@
                 </div>
                 <div class="subjectCont">
                     <!-- Use capitalized keys as defined in your groups dictionary -->
-                    <h4>Subject: {{ group_details['Subject'] }}</h4>
+                    <h4>{{ group_details['Subject'] }}</h4>
                 </div>
             </div>
-            <p>Description: {{ group_details['Description'] }}</p>
-            <p>Difficulty: {{ group_details['Difficulty'] }}</p>
+            <p>{{ group_details['Description'] }}</p>
+            <p>{{ group_details['Difficulty'] }}</p>
 
             <div class="joinCont">
-                <a href="home.html">Join</a>
+                <a href="/join">Join</a>
 
             </div>
         </div>
-    {% endfor %}
+        <br>
+        {% endfor %}
 
 
-         
 
-        
-        
-     
-            
-        
+
+
+
+
+
     </div>
-    
-    
-        
+    <script>
+        // Get the slider element
+        var slider = document.getElementById("groupsize-input");
+        // Get the span element to display the value
+        var output = document.getElementById("groupsize-value");
+        // Display the default slider value
+        output.innerHTML = slider.value;
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        };
+    </script>
+
+
 </body>
 
-       
+
 </html>

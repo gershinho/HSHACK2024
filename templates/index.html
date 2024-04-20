@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Group!</title>
+    <link rel="stylesheet" href="/static/stylesCreate.css">
+</head>
+
+
+<body class="animatedBg">
+    <div id="background"></div>
+    <div class='newGroupCont'>
+        <form action= '/join'>
+            <h3> Join:</h3>
+            <input type="text" name="userName" step="0.01" placeholder="Username:">
+            
+            <h3>Why Join This Group?:</h3>
+            <textarea id="description" name="paragraph" rows=30 cols="50"></textarea>
+            <div class='newGroupContSaveBtn'>
+
+                    <a href="/">Home</a>
+                    <input type="submit" value="Confirm" >
+                
+            </div>
+        </form>
+        <!-- <div class =  'error'>
+            {% if error_message %}
+            <p>{{ error_message }}</p>
+            {% endif %}
+        </div> -->
+
+    </div>
+    <script>
+        // Get the slider element
+        var slider = document.getElementById("slider");
+        // Get the span element to display the value
+        var output = document.getElementById("sliderValue");
+        // Display the default slider value
+        output.innerHTML = slider.value;
+
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        };
+    </script>
+
+  
+    <script src="/static/main.js"></script>
+
+</body>
+
+</html>
+

@@ -8,7 +8,7 @@ html {
 }
 .animatedBg {
     animation: gradientAnimation 15s ease infinite;
-    background: linear-gradient(-45deg, rgb(44, 2, 57), rgb(182, 75, 255));
+    background: linear-gradient(-45deg, rgb(0, 255, 17), rgb(182, 75, 255));
     
     background-size: 400% 400%;
     color: #fff;
@@ -29,7 +29,7 @@ html {
 }
 
 .topcontainer {
-
+    background-color: black;
     width: 92%;
     margin: auto;
     height: fit-content;
@@ -41,14 +41,14 @@ html {
   }
 
   header {
-    background-color: #1307299a;
+    background-color: #000000;
     padding-bottom: 15px;
     padding-top: 15px;
 }
 
 .topcontainer a {
     font-size: 20px;
-    background-color: rgb(182,20,255);
+    background-color: rgb(34, 255, 0);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -68,6 +68,7 @@ html {
     box-sizing: border-box;
 }
 .slidercontainer {
+    
     position: relative; /* Set position to relative */
     margin-top: 20px;
     color: black;
@@ -76,7 +77,7 @@ html {
     margin: 10px auto; /* Center the div horizontally */
     padding: 20px; /* Optional: Add padding for better spacing */
     border-radius: 30px;
-    margin-bottom: 5%;
+    
 }
 
 .slidercontainer input[type="range"] {
@@ -98,7 +99,7 @@ html {
     appearance: none; /* Remove default styles for non-WebKit browsers */
     width: 20px; /* Set the width of the slider thumb */
     height: 20px; /* Set the height of the slider thumb */
-    background: rgba(182,75,255,.7); /* Set the background color of the slider thumb */
+    background: rgba(120, 200, 253, 0.7); /* Set the background color of the slider thumb */
     border-radius: 50%; /* Create a circular shape for the slider thumb */
     cursor: pointer; /* Change cursor on hover */
 }
@@ -107,7 +108,7 @@ html {
     bottom: 0; /* Align to the bottom */
     right: 0; /* Align to the right */
     font-size: 1.2vh;
-    background-color: rgb(182, 75, 255);
+    background-color: rgba(120, 200, 253);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -165,7 +166,7 @@ html {
 .joinCont a {
     align-self: flex-end; /* Align the link to the bottom of the container */
     font-size: 1.2vh;
-    background-color: rgb(182, 75, 255);
+    background-color: rgba(120, 200, 253);
     color: #fff;
     padding: 10px 20px;
     border: none;
