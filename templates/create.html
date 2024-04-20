@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Group!</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <a href="home.html"> Home</a>
+    <h3> Create a Group:</h3>
+    <form>
+        <input type="text" name="groupName" step="0.01" placeholder="Group Name:">
+
+        <h3> Subject:</h3>
+        <select id="subject" name="subjects">
+            <option value="Math">Mathematics</option>
+            <option value="English">English</option>
+            <option value="Sciences">Sciences</option>
+            <option value="History">History</option>
+        </select>
+
+        <h3> Difficulty:</h3>
+
+        <select id="subject" name="subjects">
+            <option value="base">Base Level</option>
+            <option value="honors">Honors</option>
+            <option value="dualEnrollment">Dual Enrollment</option>
+            <option value="AP">Advanced Placement</option>
+        </select>
+
+        <h3>Group Size:</h3>
+        <input type="range" id="slider" name="groupSize" min="1" max="10" value="5">
+        <p><span id="sliderValue">5</span></p>
+        
+        <h3>Description:</h3>
+        <textarea id="description" name="paragraph" rows="4" cols="50"></textarea>
+    </form>
+</body>
+
+</html>
