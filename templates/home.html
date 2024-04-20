@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="/static/stylesHome.css">
     <title>Odyssey</title>
 </head>
 
@@ -40,15 +40,26 @@
     
 
     </div>
+
+    
     <div>
-        <h2>Filtered Groups:</h2>
-        {% for group_name, group_details in groups.items() %}
-            <div>
-                <h3>{{ group_name }}</h3>
-                <p>Subject: {{ group_details.subject }}</p>
-                <p>Difficulty: {{ group_details.difficulty }}</p>
-                <p>Group Size: {{ group_details.groupSize }}</p>
-                <p>Description: {{ group_details.description }}</p>
+
+        <h2>Created Groups:</h2>
+        {% for group in groups %}
+            <div class="studyCont">
+                <div class="headingCont">
+                    <div class="groupNameCont">
+                        <h3>{{ group.groupName }}</h3>
+                    </div>
+                    <div class="subjectCont">
+                        <h4>Subject: {{ group.subject }}</h4>
+                    </div>
+                </div>
+                <p>Description: {{ group.description }}</p>
+                <div class="joinCont">
+                    <a href="home.html">Join</a>
+                </div>
+
             </div>
         {% endfor %}
      

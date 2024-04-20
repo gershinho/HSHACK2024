@@ -10,6 +10,9 @@ html {
     align-items: center;
 
 }
+.error{
+    font-size: 10px;
+}
 *:focus {
     outline: none;
 }
@@ -60,6 +63,32 @@ html {
     .newGroupCont input[type="range"] {
         width: calc(75% - 18px); /* Adjust for input[type="range"] */
     }
+
+    .newGroupCont input[type="range"] {
+        -webkit-appearance: none; /* Remove default styles for WebKit browsers */
+        width: 75%; /* Set the width of the slider */
+        height: 10px; /* Set the height of the slider */
+        background: #e3e4e9; /* Set the background color of the slider track */
+        border-radius: 5px; /* Set border radius to create rounded corners */
+        outline: none; /* Remove default outline */
+        margin-bottom: 10px; /* Add some space below the slider */
+    }
+    
+    .newGroupCont input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Remove default styles for WebKit browsers */
+        appearance: none; /* Remove default styles for non-WebKit browsers */
+        width: 20px; /* Set the width of the slider thumb */
+        height: 20px; /* Set the height of the slider thumb */
+        background: rgba(182,75,255,.7); /* Set the background color of the slider thumb */
+        border-radius: 50%; /* Create a circular shape for the slider thumb */
+        cursor: pointer; /* Change cursor on hover */
+    }
+
+    .sliderCont{
+        display: flex;
+        justify-content: flex-start; /* Align items to the right */
+    }
+    
     .newGroupCont textarea {
         margin-bottom: 10px;
         width: 100%;
@@ -102,3 +131,4 @@ html {
         background-color: rgba(0, 0, 0, 0.216); /* Darken the background color on focus */
         outline: none; /* Remove the default outline */
     }
+    
