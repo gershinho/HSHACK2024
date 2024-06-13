@@ -6,88 +6,81 @@ import sqlite3
 
 app = Flask(__name__)
 
-conn = sqlite3.connect('study_groups.db', check_same_thread=False)
-c = conn.cursor()
-
-# c.execute("""CREATE TABLE IF NOT EXISTS studygroup (
-#               name TEXT,
-#               subject TEXT,
-#               difficulty TEXT,
-#               size INTEGER,
-#               description TEXT
-#               )""")
-
-
-conn.commit()
+try:
+    conn = sqlite3.connect('study_groups.db', check_same_thread=False)
+    c = conn.cursor()
+except Exception as e:
+    print(f"Database connection failed: {e}")
+    exit(1)
 
 
 
 
 
-@app.route("/", methods=['GET'])
+
+
+
+
+@app.route("/", methods=['POST', 'GET'])
 def home():
-
-    c.execute("SELECT * FROM studygroup")
-    rows = c.fetchall()
+    if request.method == 'POST':
+        data = request.form
+        group_size = data.get('groupsize-input')
+        subject = data.get('subjects')
+        difficulty = data.get('difficulty')
+        
+        # Query the database for matching groups
+        conn = sqlite3.connect('study_groups.db', check_same_thread=False)
+        c = conn.cursor()
+        c.execute("""
+            SELECT * FROM studygroup
+            WHERE upper(subject) = ?
+            AND upper(difficulty) = ?
+            AND size = ?
+        """, (subject.upper(), difficulty.upper(), group_size))
+        rows2 = c.fetchall()
+        
+        matching_groups = {}
+        for matching_group in rows2:
+            group_name = matching_group[0]
+            matching_groups[group_name] = {
+                "Subject": matching_group[1],
+                "Difficulty": matching_group[2],
+                "GroupSize": matching_group[3],
+                "Description": matching_group[4]
+            }
+        
+        # Close cursor and connection after fetching results
+        c.close()
+        conn.close()
+        
+        
+        return render_template('group_list.html', groups=matching_groups)
     
-    print()
-    print()
-    print(rows)
-    print()
-    print()
-
-    
-    # Retrieve values from the form submission or use defaults
-    group_size = request.args.get('groupsize-input', default="4")
-    subject = request.args.get('subjects', default="").upper()
-    difficulty = request.args.get('difficulty', default="").upper()
-
-    
-    c.execute("SELECT name, subject, difficulty, size, description FROM studygroup")
-
-    rows1 = c.fetchall()
-
-    all_groups = {}
-    for group in rows1:
-        group_name = group[0]
-        all_groups[group_name] = {
-            "Subject": group[1],
-            "Difficulty": group[2],
-            "GroupSize": group[3],
-            "Description": group[4]
-        }
-  
-
-
-       # Query the database for matching groups
-    c.execute("""
-        SELECT * FROM studygroup
-        WHERE upper(subject) = ?
-        AND upper(difficulty) = ?
-        AND size = ?
-    """, (subject, difficulty, group_size))
-    rows2 = c.fetchall()
-   
-
-
-    
-    matching_groups = {}
-    for matching_group in rows2:
-        group_name = matching_group[0]
-        matching_groups[group_name] = {
-            "Subject": matching_group[1],
-            "Difficulty": matching_group[2],
-            "GroupSize": matching_group[3],
-            "Description": matching_group[4]
-        }
-  
-
-    
-
+    else:  # For GET requests or initial page load
+        conn = sqlite3.connect('study_groups.db', check_same_thread=False)
+        c = conn.cursor()
+        c.execute("SELECT name, subject, difficulty, size, description FROM studygroup")
+        rows1 = c.fetchall()
+        
+        all_groups = {}
+        for group in rows1:
+            group_name = group[0]
+            all_groups[group_name] = {
+                "Subject": group[1],
+                "Difficulty": group[2],
+                "GroupSize": group[3],
+                "Description": group[4]
+            }
+        
+        # Close cursor and connection after fetching results
+        c.close()
+        conn.close()
+        
+        # Render home.html with all groups
+        return render_template('home.html', groups=all_groups)
 
     
-    # Assuming 'groups' is a dictionary you've defined elsewhere that holds group details
-    return render_template('home.html', groups=matching_groups, all_groups = all_groups, subject=subject, difficulty=difficulty)
 
 @app.route("/join")
 def join():

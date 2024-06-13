@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/stylesHome.css">
     <title>StudyShare</title>
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/static/main.js"></script>
+    </head>
 
 <body class="animatedBg">
     <header>
@@ -24,7 +26,7 @@
     
     <div class="slidercontainer">
 
-        <form>
+        <form action = "/" method = "post" class = "ajax">
             <label for="groupsize-input">Group Size: <span id="groupsize-value"></span></label>
             <input type="range" min="2" max="8" step="1" name="groupsize-input" id="groupsize-input"
                 onchange="updateValue('groupsize')">
@@ -52,41 +54,20 @@
 
 
 
-            <input type="submit" value="Submit Form">
+            <input type="submit" value="Go">
         </form>
 
-        <div id="submitted-values"></div>
+        
 
 
 
     </div>
 
 
-    <h2>Created Groups:</h2>
-        {% for group_name, group_details in all_groups.items() %}
-        <div class="studyCont">
-            <div class="headingCont">
-                <div class="groupNameCont">
-                    <h3>{{ group_name }}</h3>
-                </div>
-                <div class="subjectCont">
-                    <h4>{{ group_details['Subject'] }}</h4>
-                </div>
-            </div>
-            <p>{{ group_details['Description'] }}</p>
-            <p>{{ group_details['Difficulty'] }}</p>
+ 
+    <div id="submitted-values">
 
-            <div class="joinCont">
-                <a href="/join">Join</a>
-
-            </div>
-        </div>
-        <br>
-        {% endfor %}
-
-    <div>
-
-        <h2>Created Groups:</h2>
+        <h2>Available Groups:</h2>
         {% for group_name, group_details in groups.items() %}
         <div class="studyCont">
             <div class="headingCont">
@@ -116,19 +97,7 @@
 
 
     </div>
-    <script>
-        // Get the slider element
-        var slider = document.getElementById("groupsize-input");
-        // Get the span element to display the value
-        var output = document.getElementById("groupsize-value");
-        // Display the default slider value
-        output.innerHTML = slider.value;
-
-        // Update the current slider value (each time you drag the slider handle)
-        slider.oninput = function () {
-            output.innerHTML = this.value;
-        };
-    </script>
+ 
 
 
 </body>
