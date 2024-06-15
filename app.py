@@ -38,6 +38,7 @@ def home():
             AND upper(difficulty) = ?
             AND size = ?
         """, (subject.upper(), difficulty.upper(), group_size))
+         
         rows2 = c.fetchall()
         
         matching_groups = {}
@@ -54,6 +55,7 @@ def home():
         c.close()
         conn.close()
         
+       
         
         return render_template('group_list.html', groups=matching_groups)
     

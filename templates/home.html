@@ -8,30 +8,25 @@
     <title>StudyShare</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/static/main.js"></script>
-    </head>
+</head>
 
 <body class="animatedBg">
     <header>
-        <header>
-            <div class="topcontainer">
-                <div class="logo">
-                        <img src="/static/images/logo.png" width=15% alt="logo">
-                </div>
-                <nav>
-                    <a href="/create">+</a>
-                </nav>
+        <div class="topcontainer">
+            <div class="logo">
+                <img src="/static/images/logo.png" width="15%" alt="logo">
             </div>
-        </header>
+            <nav>
+                <a href="/create">+</a>
+            </nav>
+        </div>
     </header>
-    
+
     <div class="slidercontainer">
-
-        <form action = "/" method = "post" class = "ajax">
+        <form action="/" method="post" class="ajax">
             <label for="groupsize-input">Group Size: <span id="groupsize-value"></span></label>
-            <input type="range" min="2" max="8" step="1" name="groupsize-input" id="groupsize-input"
-                onchange="updateValue('groupsize')">
+            <input type="range" min="2" max="8" step="1" name="groupsize-input" id="groupsize-input" onchange="updateValue('groupsize')">
             <br>
-
 
             <select name="subjects">
                 <option value="" disabled selected>Select Subject</option>
@@ -39,34 +34,23 @@
                 <option value="LITERACY">LITERACY</option>
                 <option value="SCIENCE">SCIENCE</option>
                 <option value="HISTORY">HISTORY</option>
-
             </select>
 
             <select name="difficulty">
-
                 <option value="" disabled selected>Select Difficulty</option>
                 <option value="DUAL ENROLLMENT">Dual Enrollment</option>
                 <option value="ADVANCED PLACEMENT">Advanced Placement</option>
                 <option value="BASE LEVEL">Base Level</option>
                 <option value="HONORS">Honors</option>
-
             </select>
-
-
 
             <input type="submit" value="Go">
         </form>
 
-        
-
-
-
+        <p id="enter-all-fields"></p>
     </div>
 
-
- 
     <div id="submitted-values">
-
         <h2>Available Groups:</h2>
         {% for group_name, group_details in groups.items() %}
         <div class="studyCont">
@@ -83,24 +67,11 @@
 
             <div class="joinCont">
                 <a href="/join">Join</a>
-
             </div>
         </div>
         <br>
         {% endfor %}
-
-
-
-
-
-
-
-
     </div>
- 
-
-
 </body>
-
 
 </html>
